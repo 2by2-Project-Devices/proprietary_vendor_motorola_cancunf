@@ -183,8 +183,6 @@ setup_permissions()
 			synaptics)	key_path=$touch_path
 						key_files=$(prepend f54 `ls $touch_path/f54/ 2>/dev/null`)
 						key_files=$key_files"reporting query stats";;
-			focaltech)	key_path="/proc/"
-						key_files="ftxxxx-debug";;
 			   ilitek)	key_path="/proc/ilitek"
 						key_files="ioctl";;
 			   goodix)	key_path="/proc/"

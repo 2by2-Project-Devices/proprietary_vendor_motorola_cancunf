@@ -54,8 +54,6 @@ PATH_STORAGE=/sys/storage
 PATH_SDCARD=/sys/block/mmcblk1/device
 # PATH_TOUCH_CLASS="/sys/class/touchscreen/"`cd /sys/class/touchscreen && ls */ic_ver | sed 's/ic_ver//g'`
 PATH_TOUCH_MMI="/sys/class/touchscreen/"
-PATH_TOUCH="/sys/bus/i2c/drivers/"`cd /sys/bus/i2c/drivers && ls */?-*/ic_ver | sed 's/ic_ver//g'`
-PATH_TOUCH_SPI="/sys/bus/spi/drivers/"`cd /sys/bus/spi/drivers && ls */*.?/ic_ver | sed 's/ic_ver//g'`
 PATH_DISPLAY=/sys/class/graphics/fb0
 PATH_DISPLAY_DRM=/sys/class/drm/card0-DSI-1
 PATH_DISPLAY_DRM_CLI=/sys/class/drm/card0-DSI-2
@@ -350,59 +348,4 @@ if [ -e "${PATH_TOUCH_MMI}" ]; then
             let index++
         fi
     done
-elif [ -e "${PATH_TOUCH_SPI}/name" ]; then
-    HNAME=`cat ${PATH_TOUCH_SPI}/name`
-    ICVER=`cat -e ${PATH_TOUCH_SPI}/ic_ver`
-    case "$HNAME" in
-    focaltech*)
-        VEND="${ICVER##*'Product ID: '}"
-        VEND="${VEND%%\$*}"
-        FREV="${ICVER##*'Build ID: '}"
-        FREV="${FREV%%\$*}"
-        ;;
-    esac
-    create_common_revision_data "${FILE}" "${HNAME}" "${VEND}" "${HREV}" "${DATE}" "${LOT_CODE}" "${FREV}"
-    apply_revision_data_perms "${FILE}"
-else
-    if [ -e "${PATH_TOUCH}/name" ]; then
-        HNAME=`cat ${PATH_TOUCH}/name`
-        ICVER=`cat -e ${PATH_TOUCH}/ic_ver`
-        case "${HNAME}" in
-            melfas*)
-                VEND="Melfas"
-                HREV="${ICVER##*'HW Revision:'}"
-                HREV="${HREV%%\$*}"
-                FREV="${ICVER##*'Core FW ver:'}"
-                FREV="${FREV%%\$*}"
-                ;;
-            cyttsp*)
-                VEND="${ICVER##*'Custom ID:'}"
-                VEND="${VEND%%\$*}"
-                VEND="Cypress,${VEND}"
-                HREV="${ICVER##*'TTSP Version:'}"
-                HREV="${HREV%%\$*}"
-                FREV="${ICVER##*'Application Version:'}"
-                FREV="${FREV%%\$*}"
-                ;;
-            atmxt*)
-                VEND="Atmel"
-                HREV="${ICVER##*'Family ID:'}"
-                HREV1="${ICVER##*'Variant ID:'}"
-                HREV="${HREV%%\$*},${HREV1%%\$*}"
-                FREV="${ICVER##*'Version:'}"
-                FREV1="${ICVER##*'Build:'}"
-                FREV="${FREV%%\$*},${FREV1%%\$*}"
-                ;;
-            synaptics*)
-                VEND="${ICVER##*'Product ID: '}"
-                VEND="${VEND%%\$*}"
-                FREV="${ICVER##*'Build ID: '}"
-                FREV="${FREV%%\$*}"
-                LOT_CODE="${ICVER##*'Config ID: '}"
-                LOT_CODE="${LOT_CODE%%\$*}"
-                ;;
-        esac
-        create_common_revision_data "${FILE}" "${HNAME}" "${VEND}" "${HREV}" "${DATE}" "${LOT_CODE}" "${FREV}"
-        apply_revision_data_perms "${FILE}"
-    fi
 fi

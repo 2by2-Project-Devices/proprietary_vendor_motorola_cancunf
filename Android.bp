@@ -20102,7 +20102,8 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-	name: "com.motorola.hardware.biometric.fingerprint@1.0",
+	name: "com.motorola.hardware.biometric.fingerprint@1.0_vendor",
+	stem: "com.motorola.hardware.biometric.fingerprint@1.0",
 	owner: "motorola",
 	strip: {
 		none: true,

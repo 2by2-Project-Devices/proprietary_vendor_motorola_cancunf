@@ -1749,6 +1749,7 @@ PRODUCT_PACKAGES += \
     EuiccGoogle \
     HotwordEnrollmentOKGoogleRISCV \
     HotwordEnrollmentXGoogleRISCV \
+    MobileFeliCaClient \
     ImsService \
     mediatek-common \
     mediatek-framework \

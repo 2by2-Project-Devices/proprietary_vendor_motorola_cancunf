@@ -1360,7 +1360,7 @@ PRODUCT_PACKAGES += \
     APUWareHmpServer \
     APUWareUtilsServer \
     com.fingerprints.extension@1.0 \
-    com.motorola.hardware.biometric.fingerprint@1.0 \
+    com.motorola.hardware.biometric.fingerprint@1.0_vendor \
     android.hardware.audio@6.0-impl-mediatek \
     android.hardware.audio@7.0-impl-mediatek \
     android.hardware.bluetooth@1.1-impl-mediatek \

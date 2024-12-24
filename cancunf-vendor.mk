@@ -365,10 +365,6 @@ PRODUCT_COPY_FILES += \
     vendor/motorola/cancunf/proprietary/vendor/firmware/aw87xxx_acf.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/aw87xxx_acf.bin \
     vendor/motorola/cancunf/proprietary/vendor/firmware/cps4035.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/cps4035.bin \
     vendor/motorola/cancunf/proprietary/vendor/firmware/fm_cust.cfg:$(TARGET_COPY_OUT_VENDOR)/firmware/fm_cust.cfg \
-    vendor/motorola/cancunf/proprietary/vendor/firmware/focaltech_ts_fw_csot.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/focaltech_ts_fw_csot.bin \
-    vendor/motorola/cancunf/proprietary/recovery/root/vendor/firmware/focaltech_ts_fw_csot.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/focaltech_ts_fw_csot.bin \
-    vendor/motorola/cancunf/proprietary/vendor/firmware/focaltech_ts_fw_csot_ft8725.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/focaltech_ts_fw_csot_ft8725.bin \
-    vendor/motorola/cancunf/proprietary/recovery/root/vendor/firmware/focaltech_ts_fw_csot_ft8725.bin:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/firmware/focaltech_ts_fw_csot_ft8725.bin \
     vendor/motorola/cancunf/proprietary/vendor/firmware/mt6627_fm_v1_coeff.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/mt6627_fm_v1_coeff.bin \
     vendor/motorola/cancunf/proprietary/vendor/firmware/mt6627_fm_v1_patch.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/mt6627_fm_v1_patch.bin \
     vendor/motorola/cancunf/proprietary/vendor/firmware/mt6630_fm_v1_coeff.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/mt6630_fm_v1_coeff.bin \
@@ -1753,6 +1749,7 @@ PRODUCT_PACKAGES += \
     EuiccGoogle \
     HotwordEnrollmentOKGoogleRISCV \
     HotwordEnrollmentXGoogleRISCV \
+    MobileFeliCaClient \
     ImsService \
     mediatek-common \
     mediatek-framework \
